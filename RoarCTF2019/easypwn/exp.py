@@ -8,7 +8,7 @@ p = process("./easy_pwn")
 # p = remote("127.0.0.1", 12345)
 def allocate(size):
 	p.recvuntil("choice: ")
-	p.sendline("1")^_^
+	p.sendline("1")
 	p.recvuntil("size: ")
 	p.sendline(str(size))
 
