@@ -20,7 +20,7 @@ liwc@ubuntu:~/pwn/ctfs/D^3CTF/unprintableV$ seccomp-tools dump ./unprintableV
 
 禁用了`execve`函数，所以应该使用`open`,`read`,`write`等函数组合读取flag。
 
-题目会leak出栈上的地址。在向栈上输入`D^3CTF`之后会调用漏洞函数，这里存在明显的格式化字符串漏洞，但是这个格式化字符串在bss段，所以要利用的话要麻烦些。
+题目会leak出栈上的地址。vuln函数中存在明显的格式化字符串漏洞，但是这个格式化字符串在bss段，所以要利用的话要麻烦些。
 
 ```c
 void __cdecl vuln()
